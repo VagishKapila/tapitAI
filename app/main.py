@@ -6,6 +6,7 @@ from app.core.init_db import init_db
 from app.api.router import api_router
 from app.modules.connections import router as connections_router
 from app.modules.notifications.router import router as notifications_router
+from app.routes.push import router as push_router
 
 setup_logging()
 logger.info("Starting TapIn backend")
@@ -17,6 +18,7 @@ app = FastAPI(
     version="0.1.0"
 )
 
+app.include_router(push_router)
 # All API routes (includes presence via router.py)
 app.include_router(api_router)
 
