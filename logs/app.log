@@ -19469,3 +19469,10 @@ WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visib
 2026-02-23 13:06:52 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
 2026-02-23 13:06:52 | DEBUG | [auth] ✅ user_id=47fe634f-3f50-4b20-8888-0a7cf5a65274
 2026-02-23 13:06:52 | DEBUG | ========== AUTH DEBUG END ==========
+2026-02-23 13:06:57 | DEBUG | ========== AUTH DEBUG ==========
+2026-02-23 13:06:57 | DEBUG | [auth] mode=jwks
+2026-02-23 13:06:57 | DEBUG | [auth] token_len=691
+2026-02-23 13:06:57 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-02-23 13:06:57 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-02-23 13:06:57 | DEBUG | [auth] ✅ user_id=47fe634f-3f50-4b20-8888-0a7cf5a65274
+2026-02-23 13:06:57 | DEBUG | ========== AUTH DEBUG END ==========
