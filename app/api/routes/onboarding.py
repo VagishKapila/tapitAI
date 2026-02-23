@@ -1,9 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from loguru import logger
 from datetime import datetime
+from uuid import UUID
+
+from fastapi import APIRouter, Depends, HTTPException
+from loguru import logger
+from sqlalchemy.orm import Session
 
 from app.core.db import get_db
+from app.core.auth import get_current_user_id
+
 from app.models.onboarding import OnboardingState
 from app.models.profile import Profile
 from app.models.media import MediaItem
@@ -23,11 +27,6 @@ from app.schemas.enums import OnboardingStep
 router = APIRouter(prefix="/onboarding", tags=["onboarding"])
 
 
-# 🔐 TEMP USER (until auth is wired)
-def get_current_user_id():
-    return "local-user-123"
-
-
 # ----------------------------
 # START
 # ----------------------------
@@ -35,8 +34,8 @@ def get_current_user_id():
 def start_onboarding(
     payload: OnboardingStartRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),       
 ):
-    user_id = get_current_user_id()
     logger.info(f"Onboarding start | user={user_id}")
 
     state = db.get(OnboardingState, user_id)
@@ -70,8 +69,12 @@ def start_onboarding(
 def save_location(
     payload: OnboardingLocationRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    state = db.get(OnboardingState, get_current_user_id())
+    state = db.get(OnboardingState, user_id)
+    if not state:
+        raise HTTPException(status_code=400, detail="Onboarding not started")
+
     state.current_step = OnboardingStep.prefs
     db.commit()
 
@@ -91,9 +94,11 @@ def save_location(
 def save_prefs(
     payload: OnboardingPrefsRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    user_id = get_current_user_id()
     state = db.get(OnboardingState, user_id)
+    if not state:
+        raise HTTPException(status_code=400, detail="Onboarding not started")
 
     profile = db.get(Profile, user_id) or Profile(user_id=user_id)
     profile.height_inches = payload.height_inches
@@ -120,9 +125,11 @@ def save_prefs(
 def save_intent(
     payload: OnboardingIntentRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    user_id = get_current_user_id()
     state = db.get(OnboardingState, user_id)
+    if not state:
+        raise HTTPException(status_code=400, detail="Onboarding not started")
 
     profile = db.get(Profile, user_id) or Profile(user_id=user_id)
     profile.intent = payload.intent
@@ -147,10 +154,9 @@ def save_intent(
 def save_lifestyle(
     payload: OnboardingLifestyleRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    user_id = get_current_user_id()
     state = db.get(OnboardingState, user_id)
-
     if not state or state.current_step != OnboardingStep.lifestyle:
         raise HTTPException(status_code=400, detail="Invalid onboarding state")
 
@@ -177,10 +183,9 @@ def save_lifestyle(
 def save_media(
     payload: MediaBatchRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    user_id = get_current_user_id()
     state = db.get(OnboardingState, user_id)
-
     if not state or state.current_step != OnboardingStep.media:
         raise HTTPException(status_code=400, detail="Invalid onboarding state")
 
@@ -189,7 +194,6 @@ def save_media(
     for item in payload.items:
         db.add(
             MediaItem(
-                id=item.id,
                 user_id=user_id,
                 media_type=item.media_type,
                 order_index=item.order_index,
@@ -216,10 +220,9 @@ def save_media(
 def save_note(
     payload: OnboardingNoteRequest,
     db: Session = Depends(get_db),
+    user_id: UUID = Depends(get_current_user_id),
 ):
-    user_id = get_current_user_id()
     state = db.get(OnboardingState, user_id)
-
     if not state or state.current_step != OnboardingStep.note:
         raise HTTPException(status_code=400, detail="Invalid onboarding state")
 
