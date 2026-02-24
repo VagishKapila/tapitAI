@@ -1,8 +1,9 @@
+# backend/app/api/push.py
 from __future__ import annotations
 
-import os
 import json
-from typing import Any, Dict, List, Optional
+import os
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 import httpx
 from fastapi import APIRouter, Depends, Header, HTTPException, Request
@@ -13,6 +14,8 @@ from sqlalchemy.engine import Engine
 from app.db import get_engine
 
 router = APIRouter(prefix="/v1", tags=["push"])
+
+EXPO_PUSH_URL = "https://exp.host/--/api/v2/push/send"
 
 
 # ---------------------------
@@ -29,13 +32,19 @@ class RegisterPushTokenIn(BaseModel):
 class SupabaseWebhookPayload(BaseModel):
     type: Optional[str] = None
     table: Optional[str] = None
-    schema: Optional[str] = None
+
+    # avoid pydantic warning about "schema" shadowing BaseModel attr
+    schema_: Optional[str] = Field(default=None, alias="schema")
+
     record: Dict[str, Any]
     old_record: Optional[Dict[str, Any]] = None
 
+    class Config:
+        populate_by_name = True
+
 
 # ---------------------------
-# Helpers
+# Helpers (auth / validation)
 # ---------------------------
 
 def _require_webhook_secret(x_webhook_secret: Optional[str]) -> None:
@@ -50,13 +59,36 @@ def _is_expo_token(token: str) -> bool:
     return token.startswith("ExponentPushToken[")
 
 
+def _supabase_headers(service_key: str) -> Dict[str, str]:
+    return {
+        "apikey": service_key,
+        "Authorization": f"Bearer {service_key}",
+        # keep response small
+        "Accept": "application/json",
+    }
+
+
+def _get_supabase_env() -> Tuple[str, str]:
+    supabase_url = os.getenv("SUPABASE_URL")
+    service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+
+    if not supabase_url or not service_key:
+        raise HTTPException(
+            status_code=500,
+            detail="SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set",
+        )
+
+    return supabase_url.rstrip("/"), service_key
+
+
+# ---------------------------
+# Helpers (expo push)
+# ---------------------------
+
 async def _send_expo_push(messages: List[Dict[str, Any]]) -> Dict[str, Any]:
-    url = "https://exp.host/--/api/v2/push/send"
-
     async with httpx.AsyncClient(timeout=15) as client:
-        resp = await client.post(url, json=messages)
+        resp = await client.post(EXPO_PUSH_URL, json=messages)
 
-        # Log response for debugging
         try:
             data = resp.json()
         except Exception:
@@ -68,33 +100,51 @@ async def _send_expo_push(messages: List[Dict[str, Any]]) -> Dict[str, Any]:
         return data
 
 
-async def _supabase_get_conversation_participants(conversation_id: str) -> List[str]:
-    supabase_url = os.getenv("SUPABASE_URL")
-    service_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+# ---------------------------
+# Helpers (supabase reads)
+# ---------------------------
 
-    if not supabase_url or not service_key:
-        raise HTTPException(status_code=500, detail="SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set")
+async def _supabase_get_conversation_participants(conversation_id: str) -> List[str]:
+    supabase_url, service_key = _get_supabase_env()
 
     url = f"{supabase_url}/rest/v1/conversation_participants"
-    params = {
-        "conversation_id": f"eq.{conversation_id}",
-        "select": "user_id"
-    }
-
-    headers = {
-        "apikey": service_key,
-        "Authorization": f"Bearer {service_key}",
-    }
+    params = {"conversation_id": f"eq.{conversation_id}", "select": "user_id"}
+    headers = _supabase_headers(service_key)
 
     async with httpx.AsyncClient(timeout=15) as client:
         resp = await client.get(url, params=params, headers=headers)
-
         if resp.status_code >= 400:
             raise HTTPException(status_code=502, detail=f"Supabase error: {resp.text}")
 
         rows = resp.json()
         return [r["user_id"] for r in rows if "user_id" in r]
 
+
+async def _supabase_get_distinct_senders(conversation_id: str) -> Set[str]:
+    """
+    Messages live in Supabase. Local Postgres does NOT have them.
+    We count distinct sender_id values for the conversation via Supabase REST.
+    """
+    supabase_url, service_key = _get_supabase_env()
+
+    url = f"{supabase_url}/rest/v1/messages"
+    # only fetch sender_id to keep payload small
+    params = {"conversation_id": f"eq.{conversation_id}", "select": "sender_id"}
+    headers = _supabase_headers(service_key)
+
+    async with httpx.AsyncClient(timeout=15) as client:
+        resp = await client.get(url, params=params, headers=headers)
+        if resp.status_code >= 400:
+            # don't crash the webhook; just treat as not revealed yet
+            return set()
+
+        rows = resp.json()
+        return {r["sender_id"] for r in rows if "sender_id" in r and r["sender_id"]}
+
+
+# ---------------------------
+# Helpers (local DB: push tokens)
+# ---------------------------
 
 def _get_tokens_for_user(engine: Engine, user_id: str) -> List[Dict[str, Any]]:
     q = text("""
@@ -136,6 +186,83 @@ def _upsert_token(engine: Engine, payload: RegisterPushTokenIn) -> None:
 
 
 # ---------------------------
+# Helpers (local DB: reveal state)
+# ---------------------------
+
+def _local_mark_revealed(
+    engine: Engine,
+    conversation_id: str,
+    requester_id: str,
+    target_id: str,
+) -> None:
+    """
+    We store reveal state locally in public.connections.
+
+    IMPORTANT: We set connections.id = conversation_id (UUID).
+    That way you can query reveal state by conversation_id without adding new columns.
+    """
+    with engine.begin() as conn:
+        conn.execute(
+            text("""
+                insert into public.connections (id, requester_id, target_id, status, revealed_at)
+                values (:id, :requester_id, :target_id, 'accepted', now())
+                on conflict (id)
+                do update set
+                    revealed_at = coalesce(public.connections.revealed_at, excluded.revealed_at),
+                    status = excluded.status
+            """),
+            {
+                "id": conversation_id,
+                "requester_id": requester_id,
+                "target_id": target_id,
+            },
+        )
+
+
+def _local_is_revealed(engine: Engine, conversation_id: str) -> bool:
+    with engine.begin() as conn:
+        row = conn.execute(
+            text("select revealed_at from public.connections where id = :id"),
+            {"id": conversation_id},
+        ).mappings().first()
+
+    if not row:
+        return False
+    return row.get("revealed_at") is not None
+
+
+async def _maybe_reveal_after_two_senders(
+    engine: Engine,
+    conversation_id: str,
+    participants: List[str],
+) -> bool:
+    """
+    Reveal rule v1:
+      - conversation has at least 2 distinct sender_ids in Supabase messages table
+      - then mark revealed locally (public.connections.revealed_at)
+
+    Returns: True if revealed now (or already revealed), else False
+    """
+    if _local_is_revealed(engine, conversation_id):
+        return True
+
+    distinct_senders = await _supabase_get_distinct_senders(conversation_id)
+    if len(distinct_senders) < 2:
+        return False
+
+    # Use first two participants as requester/target (stable + simple for v1)
+    # participants are UUID strings
+    if len(participants) < 2:
+        return False
+
+    requester_id = participants[0]
+    target_id = participants[1]
+
+    _local_mark_revealed(engine, conversation_id, requester_id, target_id)
+    return True
+
+
+# ---------------------------
 # Routes
 # ---------------------------
 
@@ -148,7 +275,6 @@ async def register_push_token(
         raise HTTPException(status_code=400, detail="Invalid Expo push token")
 
     _upsert_token(engine, body)
-
     return {"ok": True}
 
 
@@ -165,7 +291,6 @@ async def supabase_messages_webhook(
         body_bytes = await request.body()
         if not body_bytes:
             return {"ok": True, "skipped": "empty body"}
-
         payload_json = json.loads(body_bytes.decode("utf-8"))
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid JSON body")
@@ -173,19 +298,21 @@ async def supabase_messages_webhook(
     payload = SupabaseWebhookPayload(**payload_json)
 
     record = payload.record or {}
-    conversation_id = str(record.get("conversation_id", ""))
-    sender_id = str(record.get("sender_id", ""))
+    conversation_id = str(record.get("conversation_id", "") or "")
+    sender_id = str(record.get("sender_id", "") or "")
     message_body = str(record.get("body", "") or "")
 
     if not conversation_id or not sender_id:
         return {"ok": True, "skipped": "missing conversation_id/sender_id"}
 
     participants = await _supabase_get_conversation_participants(conversation_id)
-
     targets = [uid for uid in participants if uid and uid != sender_id]
 
     if not targets:
         return {"ok": True, "skipped": "no targets"}
+
+    # 🔥 Reveal check uses Supabase messages, then writes reveal state locally
+    revealed = await _maybe_reveal_after_two_senders(engine, conversation_id, participants)
 
     expo_messages: List[Dict[str, Any]] = []
 
@@ -207,6 +334,8 @@ async def supabase_messages_webhook(
                         "type": "chat_message",
                         "conversationId": conversation_id,
                         "senderId": sender_id,
+                        # ✅ front-end can use this to decide whether to fetch profile media
+                        "revealReady": revealed,
                     },
                     "priority": "high",
                 }
@@ -220,5 +349,6 @@ async def supabase_messages_webhook(
     return {
         "ok": True,
         "sent": len(expo_messages),
+        "reveal_ready": revealed,
         "expo": result,
     }
