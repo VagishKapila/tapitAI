@@ -258,6 +258,9 @@ async def _maybe_reveal_after_two_senders(
     requester_id = participants[0]
     target_id = participants[1]
 
+    import asyncio
+    await asyncio.sleep(2)
+
     _local_mark_revealed(engine, conversation_id, requester_id, target_id)
     return True
 
@@ -265,6 +268,7 @@ async def _maybe_reveal_after_two_senders(
 # ---------------------------
 # Routes
 # ---------------------------
+
 
 @router.post("/push/register")
 async def register_push_token(
@@ -352,3 +356,99 @@ async def supabase_messages_webhook(
         "reveal_ready": revealed,
         "expo": result,
     }
+
+@router.get("/reveal/profile")
+def get_revealed_profile(
+    conversation_id: str,
+    other_user_id: str,
+    engine: Engine = Depends(get_engine),
+):
+    # 1️⃣ Check reveal state
+    with engine.begin() as conn:
+        row = conn.execute(
+            text("""
+                select revealed_at
+                from public.connections
+                where id = :id
+            """),
+            {"id": conversation_id},
+        ).mappings().first()
+
+    if not row or not row.get("revealed_at"):
+        raise HTTPException(status_code=403, detail="Not revealed yet")
+
+    # 2️⃣ Fetch primary media from local DB
+    with engine.begin() as conn:
+        media = conn.execute(
+            text("""
+                select id
+                from public.media_item
+                where user_id = :uid
+                and is_primary = true
+                limit 1
+            """),
+            {"uid": other_user_id},
+        ).mappings().first()
+
+    if not media:
+        return {"primaryPhotoUrl": None}
+
+    media_id = media["id"]
+
+    return {
+        "primaryPhotoUrl": f"/static/uploads/{media_id}.jpg"
+    }
+@router.post("/reveal/decision")
+def reveal_decision(
+    conversation_id: str,
+    decision: str,
+    engine: Engine = Depends(get_engine),
+):
+    if decision not in ["meet", "pass"]:
+        raise HTTPException(status_code=400, detail="Invalid decision")
+
+    with engine.begin() as conn:
+        row = conn.execute(
+            text("select decline_count from public.connections where id = :id"),
+            {"id": conversation_id},
+        ).mappings().first()
+
+        if not row:
+            raise HTTPException(status_code=404, detail="Connection not found")
+
+        if decision == "meet":
+            conn.execute(
+                text("""
+                    update public.connections
+                    set status = 'accepted'
+                    where id = :id
+                """),
+                {"id": conversation_id},
+            )
+            return {"status": "meeting"}
+
+        # PASS LOGIC
+        new_decline = (row["decline_count"] or 0) + 1
+
+        if new_decline >= 3:
+            conn.execute(
+                text("""
+                    update public.connections
+                    set status = 'expired'
+                    where id = :id
+                """),
+                {"id": conversation_id},
+            )
+            return {"status": "ended"}
+
+        conn.execute(
+            text("""
+                update public.connections
+                set decline_count = :c,
+                    status = 'rejected'
+                where id = :id
+            """),
+            {"c": new_decline, "id": conversation_id},
+        )
+
+    return {"status": "search_next"}
