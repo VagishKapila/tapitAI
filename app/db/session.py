@@ -1,21 +1,16 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
+from typing import Generator
 
-from app.core.config import DATABASE_URL
+from .engine import get_engine
 
-# 🚀 POSTGRES ONLY — NO SQLITE FALLBACK
-engine = create_engine(
-    DATABASE_URL,
-    pool_pre_ping=True,
-)
-
+# Create Session factory
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
-    bind=engine,
+    bind=get_engine(),
 )
 
-def get_db():
+def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
         yield db

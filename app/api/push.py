@@ -377,27 +377,25 @@ def get_revealed_profile(
     if not row or not row.get("revealed_at"):
         raise HTTPException(status_code=403, detail="Not revealed yet")
 
-    # 2️⃣ Fetch primary media from local DB
+    # 2️⃣ Fetch primary media from DB
     with engine.begin() as conn:
         media = conn.execute(
             text("""
-                select id
+                select file_path
                 from public.media_item
                 where user_id = :uid
-                and is_primary = true
+                  and is_primary = true
+                order by created_at desc
                 limit 1
             """),
             {"uid": other_user_id},
         ).mappings().first()
 
-    if not media:
+    if not media or not media.get("file_path"):
         return {"primaryPhotoUrl": None}
 
-    media_id = media["id"]
-
-    return {
-        "primaryPhotoUrl": f"/static/uploads/{media_id}.jpg"
-    }
+    # 🔥 RETURN EXACT STORED PATH
+    return {"primaryPhotoUrl": media["file_path"]}
 @router.post("/reveal/decision")
 def reveal_decision(
     conversation_id: str,

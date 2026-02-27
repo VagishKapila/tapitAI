@@ -68,6 +68,44 @@ def haversine_m(lat1, lng1, lat2, lng2):
     return 2 * R * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
+def _pair_low_high(a, b) -> tuple[str, str]:
+    a_str = str(a)
+    b_str = str(b)
+    return (a_str, b_str) if a_str < b_str else (b_str, a_str)
+
+
+def _is_blocked_pair(db: Session, me, other) -> bool:
+    low, high = _pair_low_high(me, other)
+
+    row = db.execute(
+        text(
+            """
+            select 1
+            from public.reveal_blocklist_v2
+            where user_low = :low and user_high = :high
+            """
+        ),
+        {"low": low, "high": high},
+    ).mappings().first()
+
+    return row is not None
+
+
+def _today_cycle_targets(db: Session, viewer_id: str, day_key) -> list[str]:
+    rows = db.execute(
+        text(
+            """
+            select target_id
+            from public.reveal_daily_cycle_v2
+            where viewer_id = :viewer_id and day_key = :day_key
+            order by slot asc
+            """
+        ),
+        {"viewer_id": viewer_id, "day_key": day_key},
+    ).mappings().all()
+
+    return [str(r["target_id"]) for r in rows if r.get("target_id")]
+
 # ------------------------------------------------------------------
 # HEARTBEAT
 # ------------------------------------------------------------------
@@ -132,8 +170,9 @@ def presence_heartbeat(
 
     return {"status": "ok", "last_seen_at": now}
 
+
 # ------------------------------------------------------------------
-# NEARBY + AUTO-NUDGE
+# NEARBY + 3-CYCLE V2 FILTER
 # ------------------------------------------------------------------
 
 @router.post("/nearby", response_model=NearbyResponse)
@@ -143,23 +182,14 @@ def presence_nearby(
     user_id: str = Depends(get_current_user_id),
 ):
     now = datetime.now()
+    day_key = now.date()
+
     expiry_cutoff = now - timedelta(minutes=PRESENCE_EXPIRY_MINUTES)
     activation_cutoff = now - timedelta(seconds=STATIONARY_THRESHOLD_SECONDS)
-    print("STATIONARY_THRESHOLD_SECONDS =", STATIONARY_THRESHOLD_SECONDS)
 
-    # Debug current user
-    me = db.execute(
-        text("""
-            SELECT activated_at, last_seen_at
-            FROM presence
-            WHERE user_id = :uid
-        """),
-        {"uid": user_id},
-    ).fetchone()
-
-    print("ME:", me)
-    print("ACTIVATION_CUTOFF:", activation_cutoff)
-    
+    # Get today's cycle targets first (these are the ONLY 3 we ever show today)
+    todays_targets = _today_cycle_targets(db, user_id, day_key)
+    todays_set = set(todays_targets)
 
     rows = db.execute(
         text(
@@ -182,23 +212,54 @@ def presence_nearby(
         },
     ).fetchall()
 
-    print("RAW ELIGIBLE ROWS:", rows)
-
-    nearby_users = []
-
+    # distance filter first
+    in_radius: list[tuple[str, float, float, float]] = []
     for r in rows:
         distance = haversine_m(payload.lat, payload.lng, r.lat, r.lng)
-        print("DISTANCE TO", r.user_id, "=", distance)
-
         if distance <= payload.radius_meters:
-            nearby_users.append(
-                NearbyUser(
-                     user_id=str(r.user_id),
-                    lat=r.lat,
-                    lng=r.lng,
-                    distance_meters=round(distance, 1),
-                )
-            )
-    print("FINAL NEARBY USERS:", nearby_users)
+            in_radius.append((str(r.user_id), float(r.lat), float(r.lng), float(distance)))
 
-    return {"users": nearby_users, "conversation_id": None}
+    # If we already have 3 today, ONLY return those 3 (if still around)
+    if len(todays_targets) >= 3:
+        out: list[NearbyUser] = []
+        for uid, lat, lng, dist in in_radius:
+            if uid in todays_set:
+                out.append(
+                    NearbyUser(user_id=uid, lat=lat, lng=lng, distance_meters=round(dist, 1))
+                )
+        # preserve the cycle ordering (slot order)
+        out.sort(key=lambda u: todays_targets.index(u.user_id) if u.user_id in todays_set else 999)
+        return {"users": out, "conversation_id": None}
+
+    # Otherwise: show today's existing first, then fill remaining slots with new users,
+    # excluding blocklisted pairs (prior passes/meets), but allowing today's already-picked users.
+    already_out: list[NearbyUser] = []
+    fresh_candidates: list[NearbyUser] = []
+
+    for uid, lat, lng, dist in in_radius:
+        if uid in todays_set:
+            already_out.append(
+                NearbyUser(user_id=uid, lat=lat, lng=lng, distance_meters=round(dist, 1))
+            )
+            continue
+
+        # exclude prior passes/meets forever
+        if _is_blocked_pair(db, user_id, uid):
+            continue
+
+        fresh_candidates.append(
+            NearbyUser(user_id=uid, lat=lat, lng=lng, distance_meters=round(dist, 1))
+        )
+
+    already_out.sort(key=lambda u: todays_targets.index(u.user_id) if u.user_id in todays_set else 999)
+
+    # fill up to 3 total
+    remaining = 3 - len(already_out)
+    if remaining < 0:
+        remaining = 0
+
+    # stable + simple fill order: nearest first
+    fresh_candidates.sort(key=lambda u: u.distance_meters)
+
+    combined = already_out + fresh_candidates[:remaining]
+    return {"users": combined, "conversation_id": None}
