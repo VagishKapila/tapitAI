@@ -212,7 +212,27 @@ def reveal_decision_v2(
 
     # Other user passed
     if other[0] == "pass":
-        _insert_block(db, user_id, payload.other_user_id, "passed", payload.conversation_id)
+        # Insert polite system message
+        db.execute(
+            text("""
+                insert into public.messages
+                (conversation_id, sender_id, body)
+                values (:cid, null, :body)
+            """),
+            {
+                "cid": payload.conversation_id,
+                "body": "They decided not to move forward this time. Wishing you better alignment ahead."
+            }
+        )
+
+        _insert_block(
+            db,
+            user_id,
+            payload.other_user_id,
+            "passed",
+            payload.conversation_id
+        )
+
         db.commit()
 
         return RevealDecisionOut(

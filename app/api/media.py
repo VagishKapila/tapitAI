@@ -146,9 +146,67 @@ async def upload_media(
     # ---------------------------------------------------
     # DEV DEBUG: See who backend thinks you are
     # ---------------------------------------------------
-    @router.get("/media/debug-user")
-    async def debug_user(
+@router.get("/media/debug-user")
+async def debug_user(
         authorization: str | None = Header(None),
     ):
         user_id = await _get_user_from_token(authorization)
         return {"user_id": user_id}
+    
+
+@router.get("/media/me")
+async def get_my_media(
+        authorization: str | None = Header(None),
+        db: Session = Depends(get_db),
+    ):
+        user_id = await _get_user_from_token(authorization)
+
+        rows = db.execute(
+            text("""
+                select id, file_path, media_type, is_primary, order_index
+                from public.media_item
+                where user_id = :uid
+                order by order_index asc
+            """),
+            {"uid": user_id},
+        ).mappings().all()
+
+        return {"media": [dict(r) for r in rows]}
+
+@router.delete("/media/{media_id}")
+async def delete_media(
+    media_id: str,
+    authorization: str | None = Header(None),
+    db: Session = Depends(get_db),
+):
+    user_id = await _get_user_from_token(authorization)
+
+    row = db.execute(
+        text("""
+            select file_path
+            from public.media_item
+            where id = :mid and user_id = :uid
+        """),
+        {"mid": media_id, "uid": user_id},
+    ).mappings().first()
+
+    if not row:
+        raise HTTPException(status_code=404, detail="Media not found")
+
+    file_path = row["file_path"]
+    full_path = os.path.join("static", file_path.lstrip("/"))
+
+    if os.path.exists(full_path):
+        os.remove(full_path)
+
+    db.execute(
+        text("""
+            delete from public.media_item
+            where id = :mid and user_id = :uid
+        """),
+        {"mid": media_id, "uid": user_id},
+    )
+
+    db.commit()
+
+    return {"status": "deleted"}

@@ -12,6 +12,7 @@ engine = create_engine(
     DATABASE_URL,
     echo=False,
     future=True,
+    pool_pre_ping=True,  # important for long-lived connections (Pulse waves etc.)
     connect_args={"check_same_thread": False}
     if DATABASE_URL.startswith("sqlite")
     else {},
