@@ -62,3 +62,7 @@ init_db()
 def health():
     logger.debug("Health check hit")
     return {"status": "ok"}
+
+@app.get("/health", tags=["health"])
+def health():
+    return {"status": "ok"}

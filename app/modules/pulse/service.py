@@ -163,66 +163,17 @@ def _set_wave_entry(db: Session, wave_id: str, user_id: str) -> None:
 
 
 def _pick_spotlight_user_id(db: Session, viewer_id: str) -> Optional[str]:
-    """
-    Always return someone if database has any users.
-    """
+    presence = _get_viewer_presence(db, viewer_id)
+    if not presence:
+        return None
 
-    # 1. Any presence user
-    row = db.execute(
-        text("""
-            select user_id
-            from public.presence
-            where user_id != :viewer_id
-            order by last_seen_at desc nulls last
-            limit 1
-        """),
-        {"viewer_id": viewer_id},
-    ).mappings().first()
+    center_lat, center_lng = presence
+    nearby = _get_nearby_user_ids(db, viewer_id, center_lat, center_lng)
+    if not nearby:
+        return None
 
-    if row:
-        return str(row["user_id"])
-
-    # 2. Any user with media
-    row = db.execute(
-        text("""
-            select user_id
-            from public.media_item
-            where user_id != :viewer_id
-            limit 1
-        """),
-        {"viewer_id": viewer_id},
-    ).mappings().first()
-
-    if row:
-        return str(row["user_id"])
-
-    # 3. ANY profile user
-    row = db.execute(
-        text("""
-            select id
-            from public.profiles
-            where id != :viewer_id
-            limit 1
-        """),
-        {"viewer_id": viewer_id},
-    ).mappings().first()
-
-    if row:
-        return str(row["id"])
-
-    # 4. Absolute fallback — even if only one user exists
-    row = db.execute(
-        text("""
-            select id
-            from public.profiles
-            limit 1
-        """)
-    ).mappings().first()
-
-    if row:
-        return str(row["id"])
-
-    return None
+    # Deterministic-ish: pick the closest for "real life"
+    return nearby[0]
 
 
 def _get_user_edge_and_badges(db: Session, user_id: str) -> Tuple[str, List[str]]:

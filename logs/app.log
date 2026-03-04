@@ -12637,3 +12637,1948 @@ WHERE onboarding_state.user_id = %(pk_1)s::UUID | params={'pk_1': UUID('96a7180f
 2026-03-02 09:24:49 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
 2026-03-02 09:24:49 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
 2026-03-02 09:24:49 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 12:32:35 | INFO | Logging initialized
+2026-03-02 12:32:35 | INFO | Starting TapIn backend
+2026-03-02 12:32:35 | INFO | Creating database tables
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'profile', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'onboarding_state', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'presence', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'connections', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'conversations', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'messages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_codes', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_usages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'waitlist_requests', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'reports', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'wingman_style_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'intent_type_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'onboarding_step_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 12:32:35 | INFO | Database tables created
+2026-03-02 13:34:15 | INFO | Logging initialized
+2026-03-02 13:34:15 | INFO | Starting TapIn backend
+2026-03-02 13:34:15 | INFO | Creating database tables
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'profile', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'onboarding_state', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'presence', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'connections', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'conversations', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'messages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_codes', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_usages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'waitlist_requests', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'reports', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'wingman_style_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'intent_type_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'onboarding_step_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 13:34:15 | INFO | Database tables created
+2026-03-02 13:34:25 | DEBUG | Health check hit
+2026-03-02 14:13:56 | INFO | Logging initialized
+2026-03-02 14:13:56 | INFO | Starting TapIn backend
+2026-03-02 14:13:56 | INFO | Creating database tables
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'profile', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'onboarding_state', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'presence', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'connections', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'conversations', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'messages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_codes', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'invite_usages', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'waitlist_requests', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'table_name': 'reports', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'wingman_style_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'intent_type_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | DEBUG | SQL: SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s | params={'typname_1': 'onboarding_step_enum', 'nspname_1': 'pg_catalog'}
+2026-03-02 14:13:56 | INFO | Database tables created
+2026-03-02 14:14:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:15 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:15 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:15 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:15 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:15 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:15 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:15 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            update public.pulse_wave
+            set status = 'closed'
+            where status = 'active'
+              and ends_at <= %(now)s
+         | params={'now': datetime.datetime(2026, 3, 2, 22, 14, 15, 680336, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select *
+            from public.pulse_wave
+            where status = 'active'
+            order by started_at desc
+            limit 1
+         | params={}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            insert into public.pulse_wave (started_at, ends_at, status)
+            values (%(started_at)s, %(ends_at)s, 'active')
+            returning id, started_at, ends_at, status, created_at
+         | params={'started_at': datetime.datetime(2026, 3, 2, 22, 14, 15, 692290, tzinfo=datetime.timezone.utc), 'ends_at': datetime.datetime(2026, 3, 2, 22, 24, 15, 692290, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select user_id
+            from public.pulse_entry
+            where wave_id = %(wave_id)s
+            limit 1
+         | params={'wave_id': '0f7a44f5-c62f-45b8-8d36-6ed1c5703d36'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select user_id
+            from public.presence
+            where user_id != %(viewer_id)s
+            order by last_seen_at desc nulls last
+            limit 1
+         | params={'viewer_id': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            insert into public.pulse_entry (wave_id, user_id)
+            values (%(wave_id)s, %(user_id)s)
+            on conflict do nothing
+         | params={'wave_id': '0f7a44f5-c62f-45b8-8d36-6ed1c5703d36', 'user_id': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select lat, lng
+            from public.presence
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select user_id, lat, lng
+            from public.presence
+            where last_seen_at is not null
+              and last_seen_at >= %(cutoff)s
+         | params={'cutoff': datetime.datetime(2026, 3, 2, 21, 54, 15, 701145, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select count(*) as c
+            from public.pulse_vote
+            where wave_id = %(wave_id)s
+              and target_user_id = %(tid)s
+         | params={'wave_id': '0f7a44f5-c62f-45b8-8d36-6ed1c5703d36', 'tid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select intent, note_text, lifestyle_tags
+            from public.profile
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:14:15 | DEBUG | SQL: 
+            select id, file_path
+            from public.media_item
+            where user_id = %(uid)s
+            order by created_at asc nulls last
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:14:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:14:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:14:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:14:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:14:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:14:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:14:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:14:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:15:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:15:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:15:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:15:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:15:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:15:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:15:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:16:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:16:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:16:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:16:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:16:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:16:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:16:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:17:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:17:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:17:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:17:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:17:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:17:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:17:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:18:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:18:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:18:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:18:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:18:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:18:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:18:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:19:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:19:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:19:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:19:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:19:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:19:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:19:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:20:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:20:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:20:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:20:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:20:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:20:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:20:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:21:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:21:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:21:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:21:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:21:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:21:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:21:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:22:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:22:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:22:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:22:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:22:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:22:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:22:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:23:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:23:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:23:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:23:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:23:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:23:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:23:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:16 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:16 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:16 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:16 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:16 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:16 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:16 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            update public.pulse_wave
+            set status = 'closed'
+            where status = 'active'
+              and ends_at <= %(now)s
+         | params={'now': datetime.datetime(2026, 3, 2, 22, 24, 16, 581084, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select *
+            from public.pulse_wave
+            where status = 'active'
+            order by started_at desc
+            limit 1
+         | params={}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            insert into public.pulse_wave (started_at, ends_at, status)
+            values (%(started_at)s, %(ends_at)s, 'active')
+            returning id, started_at, ends_at, status, created_at
+         | params={'started_at': datetime.datetime(2026, 3, 2, 22, 24, 16, 585135, tzinfo=datetime.timezone.utc), 'ends_at': datetime.datetime(2026, 3, 2, 22, 34, 16, 585135, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select user_id
+            from public.pulse_entry
+            where wave_id = %(wave_id)s
+            limit 1
+         | params={'wave_id': '28b191f0-7880-4753-ab65-595508895069'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select user_id
+            from public.presence
+            where user_id != %(viewer_id)s
+            order by last_seen_at desc nulls last
+            limit 1
+         | params={'viewer_id': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            insert into public.pulse_entry (wave_id, user_id)
+            values (%(wave_id)s, %(user_id)s)
+            on conflict do nothing
+         | params={'wave_id': '28b191f0-7880-4753-ab65-595508895069', 'user_id': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select lat, lng
+            from public.presence
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select user_id, lat, lng
+            from public.presence
+            where last_seen_at is not null
+              and last_seen_at >= %(cutoff)s
+         | params={'cutoff': datetime.datetime(2026, 3, 2, 22, 4, 16, 588969, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select count(*) as c
+            from public.pulse_vote
+            where wave_id = %(wave_id)s
+              and target_user_id = %(tid)s
+         | params={'wave_id': '28b191f0-7880-4753-ab65-595508895069', 'tid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select intent, note_text, lifestyle_tags
+            from public.profile
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select id, file_path
+            from public.media_item
+            where user_id = %(uid)s
+            order by created_at asc nulls last
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:16 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:16 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:16 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:16 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:16 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:16 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            update public.pulse_wave
+            set status = 'closed'
+            where status = 'active'
+              and ends_at <= %(now)s
+         | params={'now': datetime.datetime(2026, 3, 2, 22, 24, 16, 803568, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select *
+            from public.pulse_wave
+            where status = 'active'
+            order by started_at desc
+            limit 1
+         | params={}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select user_id
+            from public.pulse_entry
+            where wave_id = %(wave_id)s
+            limit 1
+         | params={'wave_id': '28b191f0-7880-4753-ab65-595508895069'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select lat, lng
+            from public.presence
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select user_id, lat, lng
+            from public.presence
+            where last_seen_at is not null
+              and last_seen_at >= %(cutoff)s
+         | params={'cutoff': datetime.datetime(2026, 3, 2, 22, 4, 16, 807170, tzinfo=datetime.timezone.utc)}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select count(*) as c
+            from public.pulse_vote
+            where wave_id = %(wave_id)s
+              and target_user_id = %(tid)s
+         | params={'wave_id': '28b191f0-7880-4753-ab65-595508895069', 'tid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select intent, note_text, lifestyle_tags
+            from public.profile
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:16 | DEBUG | SQL: 
+            select id, file_path
+            from public.media_item
+            where user_id = %(uid)s
+            order by created_at asc nulls last
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 14:24:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:24:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:24:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:24:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:24:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:24:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:24:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:24:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:25:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:25:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:25:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:25:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:25:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:25:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:25:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:26:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:26:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:26:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:26:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:26:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:26:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:26:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:23 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:23 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:23 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:23 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:23 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:23 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:23 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:43 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:43 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:43 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:43 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:43 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:43 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:43 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:27:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:27:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:27:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:27:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:27:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:27:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:27:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:03 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:03 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:03 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:03 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:44 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:44 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:44 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:44 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:44 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:44 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:44 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:28:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:28:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:28:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:28:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:28:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:28:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:28:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:04 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:04 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:04 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:04 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:04 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:44 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:44 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:44 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:44 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:44 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:44 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:44 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:29:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:29:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:29:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:29:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:29:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:29:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:29:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:04 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:04 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:04 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:04 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:04 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:44 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:44 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:44 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:44 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:44 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:44 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:44 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:30:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:30:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:30:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:30:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:30:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:30:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:30:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:04 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:04 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:04 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:04 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:04 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:13 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:13 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:13 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:13 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:13 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:13 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:13 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:33 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:33 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:33 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:33 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:33 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:33 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:33 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:44 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:44 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:44 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:44 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:44 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:44 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:44 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:53 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:53 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:53 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:53 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:53 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:53 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:53 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:31:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:31:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:31:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:31:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:31:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:31:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:31:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:04 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:04 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:04 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:04 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:04 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:34 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:34 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:34 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:34 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:34 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:34 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:34 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:44 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:44 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:44 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:44 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:44 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:44 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:44 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:54 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:54 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:54 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:54 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:54 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:54 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:54 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:32:58 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:32:58 | DEBUG | [auth] mode=jwks
+2026-03-02 14:32:58 | DEBUG | [auth] token_len=691
+2026-03-02 14:32:58 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:32:58 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:32:58 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:32:58 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:33:04 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:33:04 | DEBUG | [auth] mode=jwks
+2026-03-02 14:33:04 | DEBUG | [auth] token_len=691
+2026-03-02 14:33:04 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:33:04 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:33:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:33:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:33:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:33:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:33:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:33:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:33:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:33:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:33:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:33:14 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:33:14 | DEBUG | [auth] mode=jwks
+2026-03-02 14:33:14 | DEBUG | [auth] token_len=691
+2026-03-02 14:33:14 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:33:14 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:33:14 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:33:14 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:33:24 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:33:24 | DEBUG | [auth] mode=jwks
+2026-03-02 14:33:24 | DEBUG | [auth] token_len=691
+2026-03-02 14:33:24 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:33:24 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:33:24 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:33:24 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 14:33:28 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 14:33:28 | DEBUG | [auth] mode=jwks
+2026-03-02 14:33:28 | DEBUG | [auth] token_len=691
+2026-03-02 14:33:28 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 14:33:28 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 14:33:28 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 14:33:28 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 15:36:03 | DEBUG | [auth] mode=jwks
+2026-03-02 15:36:03 | DEBUG | [auth] token_len=691
+2026-03-02 15:36:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 15:36:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 15:36:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 15:36:03 | DEBUG | [auth] mode=jwks
+2026-03-02 15:36:03 | DEBUG | [auth] token_len=691
+2026-03-02 15:36:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 15:36:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 15:36:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 15:36:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 15:36:03 | DEBUG | [auth] mode=jwks
+2026-03-02 15:36:03 | DEBUG | [auth] mode=jwks
+2026-03-02 15:36:03 | DEBUG | [auth] token_len=691
+2026-03-02 15:36:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 15:36:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 15:36:03 | DEBUG | [auth] token_len=691
+2026-03-02 15:36:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 15:36:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 15:36:03 | DEBUG | ========== AUTH DEBUG ==========
+2026-03-02 15:36:03 | DEBUG | [auth] mode=jwks
+2026-03-02 15:36:03 | DEBUG | [auth] token_len=691
+2026-03-02 15:36:03 | DEBUG | [auth] token_prefix=eyJhbGciOiJFUzI1NiIs...
+2026-03-02 15:36:03 | DEBUG | [auth] header.alg=ES256 header.kid=f3163191-7be4-414c-b2ea-ff89a3410d2f
+2026-03-02 15:36:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 15:36:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 15:36:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 15:36:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            update public.pulse_wave
+            set status = 'closed'
+            where status = 'active'
+              and ends_at <= %(now)s
+         | params={'now': datetime.datetime(2026, 3, 2, 23, 36, 4, 277441, tzinfo=datetime.timezone.utc)}
+2026-03-02 15:36:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 15:36:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select *
+            from public.pulse_wave
+            where status = 'active'
+            order by started_at desc
+            limit 1
+         | params={}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            insert into public.pulse_wave (started_at, ends_at, status)
+            values (%(started_at)s, %(ends_at)s, 'active')
+            returning id, started_at, ends_at, status, created_at
+         | params={'started_at': datetime.datetime(2026, 3, 2, 23, 36, 4, 281516, tzinfo=datetime.timezone.utc), 'ends_at': datetime.datetime(2026, 3, 2, 23, 46, 4, 281516, tzinfo=datetime.timezone.utc)}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select user_id
+            from public.pulse_entry
+            where wave_id = %(wave_id)s
+            limit 1
+         | params={'wave_id': 'c639dc21-5e78-4b48-a5cf-5a648f9db18d'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select user_id
+            from public.presence
+            where user_id != %(viewer_id)s
+            order by last_seen_at desc nulls last
+            limit 1
+         | params={'viewer_id': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            insert into public.pulse_entry (wave_id, user_id)
+            values (%(wave_id)s, %(user_id)s)
+            on conflict do nothing
+         | params={'wave_id': 'c639dc21-5e78-4b48-a5cf-5a648f9db18d', 'user_id': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select lat, lng
+            from public.presence
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select user_id, lat, lng
+            from public.presence
+            where last_seen_at is not null
+              and last_seen_at >= %(cutoff)s
+         | params={'cutoff': datetime.datetime(2026, 3, 2, 23, 16, 4, 284896, tzinfo=datetime.timezone.utc)}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select count(*) as c
+            from public.pulse_vote
+            where wave_id = %(wave_id)s
+              and target_user_id = %(tid)s
+         | params={'wave_id': 'c639dc21-5e78-4b48-a5cf-5a648f9db18d', 'tid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select intent, note_text, lifestyle_tags
+            from public.profile
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select id, file_path
+            from public.media_item
+            where user_id = %(uid)s
+            order by created_at asc nulls last
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | [auth] ✅ user_id=96a7180f-4622-4edd-9948-a082f6c3c1b0
+2026-03-02 15:36:04 | DEBUG | ========== AUTH DEBUG END ==========
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            update public.pulse_wave
+            set status = 'closed'
+            where status = 'active'
+              and ends_at <= %(now)s
+         | params={'now': datetime.datetime(2026, 3, 2, 23, 36, 4, 310671, tzinfo=datetime.timezone.utc)}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select *
+            from public.pulse_wave
+            where status = 'active'
+            order by started_at desc
+            limit 1
+         | params={}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select user_id
+            from public.pulse_entry
+            where wave_id = %(wave_id)s
+            limit 1
+         | params={'wave_id': 'c639dc21-5e78-4b48-a5cf-5a648f9db18d'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select lat, lng
+            from public.presence
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': '96a7180f-4622-4edd-9948-a082f6c3c1b0'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select user_id, lat, lng
+            from public.presence
+            where last_seen_at is not null
+              and last_seen_at >= %(cutoff)s
+         | params={'cutoff': datetime.datetime(2026, 3, 2, 23, 16, 4, 312311, tzinfo=datetime.timezone.utc)}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select count(*) as c
+            from public.pulse_vote
+            where wave_id = %(wave_id)s
+              and target_user_id = %(tid)s
+         | params={'wave_id': 'c639dc21-5e78-4b48-a5cf-5a648f9db18d', 'tid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select intent, note_text, lifestyle_tags
+            from public.profile
+            where user_id = %(uid)s
+            limit 1
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
+2026-03-02 15:36:04 | DEBUG | SQL: 
+            select id, file_path
+            from public.media_item
+            where user_id = %(uid)s
+            order by created_at asc nulls last
+         | params={'uid': 'd93f17e6-cdad-4840-a900-26b1ea7fbabd'}
