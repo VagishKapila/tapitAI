@@ -20,6 +20,13 @@ from app.modules.age_gate.router import router as age_router
 from app.modules.safety_reports.router import router as safety_router
 from app.modules.app_users.router import router as app_users_router
 from app.modules.admin_dashboard.router import router as admin_router
+from app.modules.frequent.router import router as frequent_router
+from app.modules.frequent.scheduler import start_frequency_scheduler
+start_frequency_scheduler()
+
+
+from app.modules.frequent.router import router as frequent_router
+
 
 
 load_dotenv()
@@ -48,6 +55,9 @@ app.include_router(age_router)
 app.include_router(safety_router)
 app.include_router(app_users_router)
 app.include_router(admin_router)
+app.include_router(frequent_router)
+app.include_router(frequent_router)
+
 
 
 # Static mounts
